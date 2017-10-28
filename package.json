@@ -27,6 +27,8 @@
     "@angular/cli": "1.4.9",
     "@angular/compiler-cli": "5.0.0-rc.6",
     "@angular/language-service": "5.0.0-rc.6",
+    "codelyzer": "3.2.2",
+    "tslint": "5.8.0",
     "typescript": "2.5.3"
   }
 }
