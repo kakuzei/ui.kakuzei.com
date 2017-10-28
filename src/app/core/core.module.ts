@@ -1,5 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { components, LayoutComponent } from './components';
 import { services } from './services';
@@ -7,6 +8,7 @@ import { services } from './services';
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule
   ],
   declarations: components,
   providers: services,
