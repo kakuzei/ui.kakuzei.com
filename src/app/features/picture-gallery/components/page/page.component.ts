@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { TAG_RESOURCE } from 'environments/config';
@@ -8,7 +8,8 @@ import { ITag } from '../../interfaces';
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
-  styleUrls: ['./page.component.scss']
+  styleUrls: ['./page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageComponent implements OnInit {
   tags$: Observable<ITag[]>;
