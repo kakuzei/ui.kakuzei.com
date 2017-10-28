@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PictureGalleryRoutingModule } from './picture-gallery-routing.module';
 import { components } from './components';
+import { resolvers } from './resolvers';
 
 @NgModule({
   imports: [
@@ -10,5 +11,8 @@ import { components } from './components';
     PictureGalleryRoutingModule
   ],
   declarations: components,
+  providers: [
+    ...resolvers
+  ]
 })
 export class PictureGalleryModule {}

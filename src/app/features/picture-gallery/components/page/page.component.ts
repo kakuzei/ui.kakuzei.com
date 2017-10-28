@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { TAGS_RESOURCE } from 'environments/config';
+import { TAG_RESOURCE } from 'environments/config';
 import { ApiService } from 'app/core';
 import { ITag } from '../../interfaces';
 
@@ -16,6 +16,6 @@ export class PageComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.tags$ = this.apiService.get<ITag[]>(TAGS_RESOURCE);
+    this.tags$ = this.apiService.get<ITag[]>(TAG_RESOURCE);
   }
 }

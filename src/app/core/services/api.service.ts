@@ -12,9 +12,10 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) {}
 
-  get<T>(resource: string): Observable<T> {
+  get<T>(resource: string, id?: string): Observable<T> {
+    const url = `${this.url}/${resource}` + (id ? `/${id}` : '');
     return this.httpClient
-      .get<IApiResponse<T>>(`${this.url}/${resource}`)
+      .get<IApiResponse<T>>(url)
       .map(response => response.data);
   }
 }

@@ -8,5 +8,8 @@ nav {
     margin: var(--margin-s);
     line-height: var(--line-height-s);
     font-size: var(--font-size-s);
+    &.active {
+      color: var(--accent-color);
+    }
   }
 }

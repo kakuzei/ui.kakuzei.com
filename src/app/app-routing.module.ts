@@ -4,11 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from 'app/core';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: LayoutComponent,
-    loadChildren: 'app/features/picture-gallery/picture-gallery.module#PictureGalleryModule'
-   }
+  { path: '', component: LayoutComponent, loadChildren: 'app/features/picture-gallery/picture-gallery.module#PictureGalleryModule' },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
