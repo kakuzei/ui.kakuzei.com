@@ -1,6 +1,40 @@
+:root {
+  --accent-color: #d04526;
+  --primary-color: #333333;
+  --font-size-xl: 4em;
+  --font-size-m: 1em;
+  --font-size-s: 0.9em;
+  --line-height-s: 24px;
+  --margin-s: 0 4px;
+  --padding: 24px;
+  --nav-width: 1024px;
+}
+
+* {
+  outline: none;
+  box-sizing: border-box;
+  line-height: 0;
+
+  // deactivate selection
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 body {
   height: 100vh;
   margin: 0;
   font-family: 'Rubik', sans-serif;
   font-size: 1em;
+  background-color: floralwhite;
+}
+
+span, a {
+  color: var(--primary-color);
+  line-height: normal;
+}
+
+a, a:hover, a:active, a:focus, a:visited {
+  text-decoration: none;
 }

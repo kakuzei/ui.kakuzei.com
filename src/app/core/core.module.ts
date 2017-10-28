@@ -1,5 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { components, LayoutComponent } from './components';
@@ -8,6 +9,7 @@ import { services } from './services';
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
     RouterModule
   ],
   declarations: components,
