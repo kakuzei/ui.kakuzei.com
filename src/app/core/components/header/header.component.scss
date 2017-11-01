@@ -13,4 +13,8 @@ header {
     font-size: var(--font-size-xl);
     font-weight: 500;
   }
+
+  .logo svg circle, .title {
+    cursor: pointer;
+  }
 }
