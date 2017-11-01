@@ -1,6 +1,6 @@
 <nav>
   <a
-    *ngFor="let tag of tags"
+    *ngFor="let tag of tags$ | async"
     [routerLink]="['/tags', tag.id]"
     routerLinkActive="active">#{{tag.attributes.name}}</a>
 </nav>

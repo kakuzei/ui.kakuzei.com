@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/pluck';
 
-import { TAG_RESOURCE } from 'environments/config';
-import { ApiService } from 'app/core';
 import { ITag } from '../../interfaces';
 
 @Component({
@@ -12,11 +12,11 @@ import { ITag } from '../../interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageComponent implements OnInit {
-  tags$: Observable<ITag[]>;
+  tag$: Observable<ITag>;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.tags$ = this.apiService.get<ITag[]>(TAG_RESOURCE);
+    this.tag$ = this.activatedRoute.data.pluck('tag');
   }
 }
