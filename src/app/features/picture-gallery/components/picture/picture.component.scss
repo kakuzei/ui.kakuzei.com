@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+}
+
+picture {
+  display: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  opacity: 0;
+  background-color: var(--picture-border-color);
+  margin: var(--picture-margin) 0;
+  padding: var(--picture-padding);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}

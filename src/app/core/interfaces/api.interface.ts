@@ -1,5 +1,6 @@
-export interface IApi<T> {
+export interface IApi<A, L = null> {
   id: string;
   type: string;
-  attributes: T;
+  attributes: A;
+  links: L;
 }

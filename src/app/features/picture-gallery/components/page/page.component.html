@@ -1,2 +1,1 @@
-<span *ngIf="tag$ | async; else all_pictures">Load #{{(tag$ | async).attributes.name}} pictures</span>
-<ng-template #all_pictures><span>Load all pictures</span></ng-template>
+<app-gallery [tag]="tag$ | async"></app-gallery>

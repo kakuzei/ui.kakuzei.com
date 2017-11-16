@@ -8,12 +8,12 @@ import { IApiResponse } from '../interfaces';
 
 @Injectable()
 export class ApiService {
-  private url = API_URL;
+  private apiUrl = API_URL;
 
   constructor(private httpClient: HttpClient) {}
 
-  get<T>(resource: string, id?: string): Observable<T> {
-    const url = `${this.url}/${resource}` + (id ? `/${id}` : '');
+  protected get<T>(resource: string, id?: string, nestedResource?: string): Observable<T> {
+    const url = `${this.apiUrl}/${resource}` + (id ? `/${id}` : '') + (nestedResource ? `/${nestedResource}` : '');
     return this.httpClient
       .get<IApiResponse<T>>(url)
       .map(response => response.data);

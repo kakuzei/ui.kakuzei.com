@@ -7,13 +7,14 @@
 nav {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: var(--nav-width);
 
   a {
     display: flex;
     margin: var(--margin-s);
-    line-height: var(--line-height-s);
     font-size: var(--font-size-s);
+    line-height: var(--nav-line-height);
     &.active {
       color: var(--accent-color);
     }

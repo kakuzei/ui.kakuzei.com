@@ -40,11 +40,9 @@
       "spec": false
     },
     "component": {
-      "inlineStyle": false
-    ,
+      "spec": false,
+      "inlineStyle": false,
       "inlineTemplate": false
-    ,
-      "spec": false
     },
     "directive": {
       "spec": false
@@ -61,5 +59,8 @@
     "service": {
       "spec": false
     }
+  },
+  "warnings": {
+    "typescriptMismatch": false
   }
 }

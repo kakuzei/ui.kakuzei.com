@@ -1,0 +1,9 @@
+<picture
+  [id]="domId"
+  [@pictureVisibilityChanged]="visibility">
+  <img
+    [@imageVisibilityChanged]="visibility"
+    [src]="picture.links.src"
+    [title]="picture.attributes.name"
+    (load)="onLoad()">
+</picture>

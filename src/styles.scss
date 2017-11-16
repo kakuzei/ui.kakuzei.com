@@ -1,13 +1,94 @@
 :root {
+  // font
   --accent-color: #d04526;
   --primary-color: #333333;
   --font-size-xl: 4em;
   --font-size-m: 1em;
   --font-size-s: 0.9em;
-  --line-height-s: 24px;
+  // structural
   --margin-s: 0 4px;
-  --padding: 24px;
+  --padding: 48px;
+  // nav
   --nav-width: 1024px;
+  --nav-line-height: 24px;
+  // pictures
+  --picture-border-color: #ffffff;
+  --picture-padding: 64px;
+  --picture-margin: 48px;
+
+  @media screen and (min-width: 1025px) and (max-width: 1280px) {
+    // font
+    --font-size-xl: 4em;
+    --font-size-m: 1em;
+    --font-size-s: 0.9em;
+    // structural
+    --margin-s: 0 4px;
+    --padding: 36px;
+    // nav
+    --nav-width: 750px;
+    // pictures
+    --picture-padding: 56px;
+    --picture-margin: 36px;
+  }
+
+  @media screen and (min-width: 801px) and (max-width: 1024px) {
+    // font
+    --font-size-xl: 4em;
+    --font-size-m: 1em;
+    --font-size-s: 0.9em;
+    // structural
+    --margin-s: 0 4px;
+    --padding: 32px;
+    // nav
+    --nav-width: 700px;
+    // pictures
+    --picture-padding: 48px;
+    --picture-margin: 32px;
+  }
+
+  @media screen and (min-width: 641px) and (max-width: 800px) {
+    // font
+    --font-size-xl: 3em;
+    --font-size-m: 1em;
+    --font-size-s: 0.9em;
+    // structural
+    --margin-s: 0 4px;
+    --padding: 24px;
+    // nav
+    --nav-width: 550px;
+    // pictures
+    --picture-padding: 36px;
+    --picture-margin: 24px;
+   }
+
+  @media screen and (min-width: 321px) and (max-width: 640px) {
+    // font
+    --font-size-xl: 2em;
+    --font-size-m: 1em;
+    --font-size-s: 0.9em;
+    // structural
+    --padding: 12px;
+    // nav
+    --nav-width: auto;
+    // pictures
+    --picture-padding: 24px;
+    --picture-margin: 12px;
+  }
+
+  @media screen and (max-width: 320px) {
+    // font
+    --font-size-xl: 2em;
+    --font-size-m: 0.9em;
+    --font-size-s: 0.8em;
+    // structural
+    --padding: 12px;
+    // nav
+    --nav-width: auto;
+    // pictures
+    --picture-border-color: #ff3939;
+    --picture-padding: 0;
+    --picture-margin: 12px;
+  }
 }
 
 * {
@@ -27,7 +108,8 @@ body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
   font-size: 1em;
-  background-color: #fffaf0;
+  background-color: #fce9ce;
+  overflow-y: scroll;
 }
 
 span, a {
