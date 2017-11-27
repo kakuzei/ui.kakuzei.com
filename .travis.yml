@@ -1,0 +1,10 @@
+sudo: required
+language: node_js
+node_js:
+  - '8.9'
+before_script:
+  - npm install -g @angular/cli
+  - npm install
+script: 
+  - npm run lint
+  - npm run build
