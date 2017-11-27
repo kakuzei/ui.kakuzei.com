@@ -67,7 +67,6 @@ export class GalleryComponent implements OnChanges, OnDestroy {
 
   private resetView(): void {
     this.visiblePicturesCount.next(this.initialVisiblePictureCount);
-    this.layoutService.hideFooter();
   }
 
   private markPictureAs(property: string, picture: IPicture): void {
