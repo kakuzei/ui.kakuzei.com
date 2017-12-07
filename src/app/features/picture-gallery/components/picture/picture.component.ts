@@ -25,7 +25,7 @@ import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
   domId: string;
-  visibility = 'hidden';
+  visibility: string = 'hidden';
 
   @Input()
   picture: IPicture;

@@ -4,8 +4,8 @@ import 'rxjs/add/operator/filter';
 
 @Injectable()
 export class LayoutService {
-  private id = 0;
-  footerVisibility = 'hidden';
+  private id: number = 0;
+  footerVisibility: string = 'hidden';
 
   constructor(private router: Router) {
     this.router.events.filter(event => event instanceof NavigationEnd)

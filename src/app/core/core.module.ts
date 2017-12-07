@@ -19,7 +19,7 @@ import { services } from './services';
   ]
 })
 export class CoreModule {
-  constructor (@Optional() @SkipSelf() coreModule: CoreModule) {
+  constructor(@Optional() @SkipSelf() coreModule: CoreModule) {
     if (coreModule) {
       throw new Error('CoreModule is already loaded');
     }

@@ -17,12 +17,12 @@ import { PictureService } from '../../services';
 })
 export class GalleryComponent implements OnChanges, OnDestroy {
   private pictureCount: number;
-  private initialVisiblePictureCount = 5;
+  private initialVisiblePictureCount: number = 5;
   private visiblePicturesCount: BehaviorSubject<number> = new BehaviorSubject(this.initialVisiblePictureCount);
-  private visiblePicturesCount$ = this.visiblePicturesCount.asObservable();
+  private visiblePicturesCount$: Observable<number> = this.visiblePicturesCount.asObservable();
   private subscription: Subscription;
   private extendedPictures: BehaviorSubject<IExtendedPicture[]> = new BehaviorSubject([]);
-  extendedPictures$ = this.extendedPictures.asObservable();
+  extendedPictures$: Observable<IExtendedPicture[]> = this.extendedPictures.asObservable();
 
   @Input()
   tag: ITag;
