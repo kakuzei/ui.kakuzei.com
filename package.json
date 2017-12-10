@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --aot --host 0.0.0.0 --proxy-config proxy-config.json --disable-host-check",
-    "build": "ng build --prod",
+    "build": "ng build --prod --app prod",
     "lint": "ng lint --type-check --format stylish"
   },
   "private": true,
@@ -19,8 +19,7 @@
     "@angular/platform-browser": "5.1.0",
     "@angular/platform-browser-dynamic": "5.1.0",
     "@angular/router": "5.1.0",
-    "angulartics2": "4.2.0",
-    "core-js": "2.5.1",
+    "core-js": "2.5.2",
     "in-view": "0.6.1",
     "rxjs": "5.5.5",
     "zone.js": "0.8.18"
