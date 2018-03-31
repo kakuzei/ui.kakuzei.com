@@ -17,4 +17,8 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.tags$ = this.tagService.getTags();
   }
+
+  trackById(_index: number, tag: ITag): string {
+    return tag.id;
+  }
 }

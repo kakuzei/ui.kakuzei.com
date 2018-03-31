@@ -30,6 +30,7 @@
       "app",
       "camelCase"
     ],
+    "i18n": false,
     "indent": [
       true,
       "spaces",

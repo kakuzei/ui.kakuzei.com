@@ -21,7 +21,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
   private visiblePicturesCount: BehaviorSubject<number> = new BehaviorSubject(this.initialVisiblePictureCount);
   private visiblePicturesCount$: Observable<number> = this.visiblePicturesCount.asObservable();
   private subscription: Subscription;
-  private extendedPictures: BehaviorSubject<IExtendedPicture[]> = new BehaviorSubject([]);
+  private extendedPictures: BehaviorSubject<IExtendedPicture[]> = new BehaviorSubject([] as IExtendedPicture[]);
   extendedPictures$: Observable<IExtendedPicture[]> = this.extendedPictures.asObservable();
 
   @Input()
@@ -36,7 +36,8 @@ export class GalleryComponent implements OnChanges, OnDestroy {
         this.pictureCount = pictures.length;
         pictures[0].displayable = true; // mark the first picture as displayable
         return pictures.slice(0, count);
-      }).subscribe(extendedPictures => this.extendedPictures.next(extendedPictures));
+      })
+      .subscribe(extendedPictures => this.extendedPictures.next(extendedPictures));
     }
   }
 
@@ -47,13 +48,23 @@ export class GalleryComponent implements OnChanges, OnDestroy {
   }
 
   onDisplayed(picture: IPicture): void {
-    this.markPictureAs('displayed', picture);
+    this.updateExtendedPicture(picture, (extendedPicture: IExtendedPicture) => {
+      extendedPicture.displayed = true;
+      return extendedPicture;
+    });
     this.updateView();
   }
 
   onLoaded(picture: IPicture): void {
-    this.markPictureAs('loaded', picture);
+    this.updateExtendedPicture(picture, (extendedPicture: IExtendedPicture) => {
+      extendedPicture.loaded = true;
+      return extendedPicture;
+    });
     this.updateView();
+  }
+
+  trackById(_index: number, picture: IPicture): string {
+    return picture.id;
   }
 
   private getExtendedPictures(): Observable<IExtendedPicture[]> {
@@ -69,10 +80,10 @@ export class GalleryComponent implements OnChanges, OnDestroy {
     this.visiblePicturesCount.next(this.initialVisiblePictureCount);
   }
 
-  private markPictureAs(property: string, picture: IPicture): void {
+  private updateExtendedPicture(picture: IPicture, updateFunction: (extendedPicture: IExtendedPicture) => IExtendedPicture): void {
     const extendedPictures = this.extendedPictures.getValue();
     const matchingExtendedPicture = extendedPictures.find(extendedPicture => extendedPicture.picture.id === picture.id);
-    if (matchingExtendedPicture) { matchingExtendedPicture[property] = true; }
+    if (matchingExtendedPicture) { updateFunction(matchingExtendedPicture); }
     this.extendedPictures.next(extendedPictures);
   }
 
@@ -99,7 +110,8 @@ export class GalleryComponent implements OnChanges, OnDestroy {
 
   private updateVisiblePictureCounter(): void {
     const extendedPictures = this.extendedPictures.getValue();
-    if (extendedPictures.slice(-3).filter(extendedPicture => !extendedPicture.displayed).length < 3) {
+    if (extendedPictures.slice(-3)
+      .filter(extendedPicture => !extendedPicture.displayed).length < 3) {
       this.visiblePicturesCount.next(this.visiblePicturesCount.getValue() + 5);
     }
   }

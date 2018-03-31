@@ -1,6 +1,6 @@
 <nav>
   <a
-    *ngFor="let tag of tags$ | async"
+    *ngFor="let tag of tags$ | async; trackBy: trackById"
     [routerLink]="['/tags', tag.id]"
     routerLinkActive="active">#{{ tag.attributes.name }}</a>
 </nav>
