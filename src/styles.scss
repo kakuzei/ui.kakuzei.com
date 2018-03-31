@@ -1,4 +1,6 @@
 :root {
+  // background
+  --background-color: #efebe9;
   // font
   --accent-color: #d04526;
   --primary-color: #333333;
@@ -85,7 +87,6 @@
     // nav
     --nav-width: auto;
     // pictures
-    --picture-border-color: #ff3939;
     --picture-padding: 0;
     --picture-margin: 12px;
   }
@@ -108,7 +109,7 @@ body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
   font-size: 1em;
-  background-color: #e0e0e0;
+  background-color: var(--background-color);
   overflow-y: scroll;
 }
 
