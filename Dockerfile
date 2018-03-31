@@ -1,4 +1,4 @@
-FROM nginx:1.13.7-alpine
+FROM nginx:1.13.10-alpine
 
 ENV NODE_PACKAGES nodejs
 
