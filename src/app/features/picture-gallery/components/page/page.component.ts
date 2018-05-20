@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { ITag } from '../../interfaces';
 
@@ -15,6 +16,9 @@ export class PageComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.tag$ = this.activatedRoute.data.map(data => data.tag);
+    this.tag$ = this.activatedRoute.data
+      .pipe(
+        map(data => data.tag)
+      );
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { API_URL } from 'environments/config';
 import { IApiResponse } from '../interfaces';
@@ -16,6 +16,8 @@ export class ApiService {
     const url = `${this.apiUrl}/${resource}${id ? `/${id}` : ''}${nestedResource ? `/${nestedResource}` : ''}`;
     return this.httpClient
       .get<IApiResponse<T>>(url)
-      .map(response => response.data);
+      .pipe(
+        map(response => response.data)
+      );
   }
 }

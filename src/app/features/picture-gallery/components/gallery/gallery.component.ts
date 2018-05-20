@@ -1,9 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
-import 'rxjs/add/observable/combineLatest';
-import 'rxjs/add/operator/map';
+import { BehaviorSubject, combineLatest, Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { LayoutService } from 'app/core';
 import { IExtendedPicture, IPicture, ITag } from '../../interfaces';
@@ -32,7 +29,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.tag) {
       this.resetView();
-      this.subscription = Observable.combineLatest(this.getExtendedPictures(), this.visiblePicturesCount$, (pictures, count) => {
+      this.subscription = combineLatest(this.getExtendedPictures(), this.visiblePicturesCount$, (pictures, count) => {
         this.pictureCount = pictures.length;
         pictures[0].displayable = true; // mark the first picture as displayable
         return pictures.slice(0, count);
@@ -69,7 +66,9 @@ export class GalleryComponent implements OnChanges, OnDestroy {
 
   private getExtendedPictures(): Observable<IExtendedPicture[]> {
     const pictures$ = this.tag ? this.pictureService.getPicturesByTag(this.tag) : this.pictureService.getPictures();
-    return pictures$.map(pictures => pictures.map(picture => this.toExtendedPicture(picture)));
+    return pictures$.pipe(
+      map(pictures => pictures.map(picture => this.toExtendedPicture(picture)))
+    );
   }
 
   private toExtendedPicture(picture: IPicture): IExtendedPicture {

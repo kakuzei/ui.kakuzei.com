@@ -1,4 +1,4 @@
-FROM nginx:1.13.10-alpine
+FROM nginx:1.14.0-alpine
 
 ENV NODE_PACKAGES nodejs
 
@@ -9,6 +9,7 @@ RUN apk update \
  && apk upgrade \
  && apk add $NODE_PACKAGES \
  && rm -rf /var/cache/apk/* \
+ && npm i -g npm \
  && npm install \
  && npm run build \
  && mkdir -p /app/dist \

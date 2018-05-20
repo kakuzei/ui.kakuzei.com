@@ -38,7 +38,6 @@
     ],
     "import-blacklist": [
       true,
-      "rxjs",
       "rxjs/Rx"
     ],
     "max-line-length": [

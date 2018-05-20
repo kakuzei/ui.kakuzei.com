@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import 'rxjs/add/operator/filter';
+import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class LayoutService {
@@ -8,7 +8,10 @@ export class LayoutService {
   footerVisibility: string = 'hidden';
 
   constructor(private router: Router) {
-    this.router.events.filter(event => event instanceof NavigationEnd)
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd)
+      )
       .subscribe(() => this.hideFooter());
   }
 
