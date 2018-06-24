@@ -1,8 +1,9 @@
-FROM nginx:1.14.0-alpine
+FROM nginx:1.15.0-alpine
 
 ENV NODE_PACKAGES nodejs
 
 WORKDIR /var/tmp/build
+
 COPY . .
 
 RUN apk update \
