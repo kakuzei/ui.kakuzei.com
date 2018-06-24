@@ -86,6 +86,7 @@
       true,
       "single"
     ],
+    "trackBy-function": false,
     "typedef": [
       true,
       "call-signature",

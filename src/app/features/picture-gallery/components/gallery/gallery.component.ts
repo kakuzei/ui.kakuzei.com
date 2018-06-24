@@ -60,10 +60,6 @@ export class GalleryComponent implements OnChanges, OnDestroy {
     this.updateView();
   }
 
-  trackById(_index: number, picture: IPicture): string {
-    return picture.id;
-  }
-
   private getExtendedPictures(): Observable<IExtendedPicture[]> {
     const pictures$ = this.tag ? this.pictureService.getPicturesByTag(this.tag) : this.pictureService.getPictures();
     return pictures$.pipe(

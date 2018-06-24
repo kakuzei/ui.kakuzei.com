@@ -53,7 +53,7 @@ export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
 
   ngAfterViewInit(): void {
     inView(`#${this.domId}`)
-      .on('enter', () => {
+      .once('enter', () => {
         this.displayed.emit(this.picture);
         this.displayed.complete();
       });
