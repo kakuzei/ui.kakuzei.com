@@ -15,6 +15,5 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
-  @Input()
-  visibility: string;
+  @Input() visibility: string;
 }

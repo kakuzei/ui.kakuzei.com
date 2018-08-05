@@ -27,17 +27,13 @@ export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
   domId: string;
   visibility: string = 'hidden';
 
-  @Input()
-  picture: IPicture;
+  @Input() picture: IPicture;
 
-  @Input()
-  visible: boolean;
+  @Input() visible: boolean;
 
-  @Output()
-  displayed: EventEmitter<IPicture> = new EventEmitter();
+  @Output() readonly displayed: EventEmitter<IPicture> = new EventEmitter();
 
-  @Output()
-  loaded: EventEmitter<IPicture> = new EventEmitter();
+  @Output() readonly loaded: EventEmitter<IPicture> = new EventEmitter();
 
   constructor(private layoutService: LayoutService) {}
 

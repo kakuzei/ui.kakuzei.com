@@ -21,8 +21,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
   private extendedPictures: BehaviorSubject<IExtendedPicture[]> = new BehaviorSubject([] as IExtendedPicture[]);
   extendedPictures$: Observable<IExtendedPicture[]> = this.extendedPictures.asObservable();
 
-  @Input()
-  tag: ITag;
+  @Input() tag: ITag;
 
   constructor(private pictureService: PictureService, private layoutService: LayoutService) {}
 
