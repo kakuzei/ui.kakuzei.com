@@ -1,6 +1,6 @@
 FROM nginx:1.15.5-alpine
 
-ENV NODE_PACKAGES nodejs
+ENV TEMPORARY_PACKAGES nodejs npm
 
 WORKDIR /var/tmp/build
 
@@ -8,7 +8,7 @@ COPY . .
 
 RUN apk update \
  && apk upgrade \
- && apk add $NODE_PACKAGES \
+ && apk add $TEMPORARY_PACKAGES \
  && rm -rf /var/cache/apk/* \
  && npm i -g npm \
  && npm install \
@@ -21,6 +21,6 @@ RUN apk update \
  && cp -rp dist /app \
  && cd / \
  && rm -rf /var/tmp/build \
- && apk del $NODE_PACKAGES
+ && apk del $TEMPORARY_PACKAGES
 
 COPY nginx.conf /etc/nginx/nginx.conf
