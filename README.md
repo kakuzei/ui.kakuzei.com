@@ -1,4 +1,4 @@
-## Angular UI for kakuzei.com website [![Build Status](https://travis-ci.org/kakuzei/angular.kakuzei.com.svg?branch=master)](https://travis-ci.org/kakuzei/angular.kakuzei.com) [![Code Climate](https://codeclimate.com/github/kakuzei/angular.kakuzei.com/badges/gpa.svg)](https://codeclimate.com/github/kakuzei/angular.kakuzei.com)
+## Angular UI for kakuzei.com website [![Build Status](https://travis-ci.org/kakuzei/angular.kakuzei.com.svg?branch=master)](https://travis-ci.org/kakuzei/angular.kakuzei.com) 
 
 ### Introduction
 
