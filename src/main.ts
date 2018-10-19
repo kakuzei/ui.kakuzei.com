@@ -13,8 +13,9 @@ i=a.getElementsByTagName(k)[0];e.async=1;e.src=u;i.parentNode.insertBefore(e,i)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-19373816-2', 'auto');
 ga('send', 'pageview');`;
-  document.head.appendChild(script);
-
+  if (document.head) {
+    document.head.appendChild(script);
+  }
   enableProdMode();
 }
 
