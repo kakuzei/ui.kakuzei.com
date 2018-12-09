@@ -1,12 +1,12 @@
 :root {
   // background
-  --background-color: #efebe9;
+  --background-color: #ebe8e2;
   // font
   --accent-color: #d04526;
   --primary-color: #333333;
-  --font-size-xl: 4em;
-  --font-size-m: 1em;
-  --font-size-s: 0.9em;
+  --font-size-xl: 6em;
+  --font-size-m: 1.5em;
+  --font-size-s: 1.3em;
   // structural
   --margin-s: 0 4px;
   --padding: 48px;
@@ -20,9 +20,9 @@
 
   @media screen and (min-width: 1025px) and (max-width: 1280px) {
     // font
-    --font-size-xl: 4em;
-    --font-size-m: 1em;
-    --font-size-s: 0.9em;
+    --font-size-xl: 6em;
+    --font-size-m: 1.5em;
+    --font-size-s: 1.3em;
     // structural
     --margin-s: 0 4px;
     --padding: 36px;
@@ -35,9 +35,9 @@
 
   @media screen and (min-width: 801px) and (max-width: 1024px) {
     // font
-    --font-size-xl: 4em;
-    --font-size-m: 1em;
-    --font-size-s: 0.9em;
+    --font-size-xl: 6em;
+    --font-size-m: 1.5em;
+    --font-size-s: 1.3em;
     // structural
     --margin-s: 0 4px;
     --padding: 32px;
@@ -50,9 +50,9 @@
 
   @media screen and (min-width: 641px) and (max-width: 800px) {
     // font
-    --font-size-xl: 3em;
-    --font-size-m: 1em;
-    --font-size-s: 0.9em;
+    --font-size-xl: 4.5em;
+    --font-size-m: 1.5em;
+    --font-size-s: 1.3em;
     // structural
     --margin-s: 0 4px;
     --padding: 24px;
@@ -65,9 +65,9 @@
 
   @media screen and (min-width: 321px) and (max-width: 640px) {
     // font
-    --font-size-xl: 2em;
-    --font-size-m: 1em;
-    --font-size-s: 0.9em;
+    --font-size-xl: 3em;
+    --font-size-m: 1.5em;
+    --font-size-s: 1.3em;
     // structural
     --padding: 12px;
     // nav
@@ -79,9 +79,9 @@
 
   @media screen and (max-width: 320px) {
     // font
-    --font-size-xl: 2em;
-    --font-size-m: 0.9em;
-    --font-size-s: 0.8em;
+    --font-size-xl: 3em;
+    --font-size-m: 1.3em;
+    --font-size-s: 1.2em;
     // structural
     --padding: 12px;
     // nav
@@ -107,7 +107,7 @@
 body {
   height: 100vh;
   margin: 0;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Dekko', sans-serif;
   font-size: 1em;
   background-color: var(--background-color);
   overflow-y: scroll;
