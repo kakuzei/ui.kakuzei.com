@@ -1,6 +1,6 @@
 :root {
   // background
-  --background-color: #ebe8e2;
+  --background-color: #efebe9;
   // font
   --accent-color: #d04526;
   --primary-color: #333333;
@@ -11,7 +11,7 @@
   --margin-s: 0 4px;
   --padding: 48px;
   // nav
-  --nav-width: 1024px;
+  --nav-width: 870px;
   --nav-line-height: 24px;
   // pictures
   --picture-border-color: #ffffff;
@@ -27,7 +27,7 @@
     --margin-s: 0 4px;
     --padding: 36px;
     // nav
-    --nav-width: 750px;
+    --nav-width: 660px;
     // pictures
     --picture-padding: 56px;
     --picture-margin: 36px;
@@ -42,7 +42,7 @@
     --margin-s: 0 4px;
     --padding: 32px;
     // nav
-    --nav-width: 700px;
+    --nav-width: 660px;
     // pictures
     --picture-padding: 48px;
     --picture-margin: 32px;
@@ -107,7 +107,7 @@
 body {
   height: 100vh;
   margin: 0;
-  font-family: 'Dekko', sans-serif;
+  font-family: 'Lobster', sans-serif;
   font-size: 1em;
   background-color: var(--background-color);
   overflow-y: scroll;
