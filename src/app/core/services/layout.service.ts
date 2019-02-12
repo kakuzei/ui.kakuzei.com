@@ -7,12 +7,12 @@ export class LayoutService {
   private id: number = 0;
   footerVisibility: string = 'hidden';
 
-  constructor(private router: Router) {
+  constructor(private readonly router: Router) {
     this.router.events
       .pipe(
         filter(event => event instanceof NavigationEnd)
       )
-      .subscribe(() => this.hideFooter());
+      .subscribe(() => { this.hideFooter(); });
   }
 
   domId(): string {

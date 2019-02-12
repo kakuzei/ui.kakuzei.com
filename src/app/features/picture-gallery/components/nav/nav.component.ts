@@ -12,7 +12,7 @@ import { TagService } from '../../services';
 export class NavComponent implements OnInit {
   tags$: Observable<ITag[]>;
 
-  constructor(private tagService: TagService) {}
+  constructor(private readonly tagService: TagService) {}
 
   ngOnInit(): void {
     this.tags$ = this.tagService.getTags();

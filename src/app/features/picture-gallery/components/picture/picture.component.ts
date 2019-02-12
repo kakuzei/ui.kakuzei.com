@@ -1,10 +1,10 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter,
+         Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import * as inView from 'in-view';
 
 import { LayoutService } from 'app/core';
 import { IPicture } from '../../interfaces';
-import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-picture',
@@ -35,7 +35,7 @@ export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
 
   @Output() readonly loaded: EventEmitter<IPicture> = new EventEmitter();
 
-  constructor(private layoutService: LayoutService) {}
+  constructor(private readonly layoutService: LayoutService) {}
 
   ngOnInit(): void {
     this.domId = this.layoutService.domId();

@@ -3,18 +3,18 @@ import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { empty, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { TagService } from '../services';
 import { ITag } from '../interfaces';
+import { TagService } from '../services';
 
 @Injectable()
 export class TagResolver {
-  constructor(private tagService: TagService, private router: Router) {}
+  constructor(private readonly tagService: TagService, private readonly router: Router) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<ITag> {
     return this.tagService.getTag(route.params.id)
       .pipe(
         catchError(() => {
-          this.router.navigate(['/'], { replaceUrl: true });
+          this.router.navigate(['/'], { replaceUrl: true }); // tslint:disable-line:no-floating-promises
           return empty();
         })
       );

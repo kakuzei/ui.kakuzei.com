@@ -13,7 +13,7 @@ import { ITag } from '../../interfaces';
 export class PageComponent implements OnInit {
   tag$: Observable<ITag>;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private readonly activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.tag$ = this.activatedRoute.data

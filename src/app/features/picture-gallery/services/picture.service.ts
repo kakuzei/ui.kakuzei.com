@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { PICTURE_RESOURCE, TAG_RESOURCE } from 'environments/config';
 import { ApiService } from 'app/core';
+import { PICTURE_RESOURCE, TAG_RESOURCE } from 'environments/config';
 import { IPicture, ITag } from '../interfaces';
 
 @Injectable()

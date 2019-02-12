@@ -14,16 +14,16 @@ import { PictureService } from '../../services';
 })
 export class GalleryComponent implements OnChanges, OnDestroy {
   private pictureCount: number;
-  private initialVisiblePictureCount: number = 5;
-  private visiblePicturesCount: BehaviorSubject<number> = new BehaviorSubject(this.initialVisiblePictureCount);
-  private visiblePicturesCount$: Observable<number> = this.visiblePicturesCount.asObservable();
+  private readonly initialVisiblePictureCount: number = 5;
+  private readonly visiblePicturesCount: BehaviorSubject<number> = new BehaviorSubject(this.initialVisiblePictureCount);
+  private readonly visiblePicturesCount$: Observable<number> = this.visiblePicturesCount.asObservable();
   private subscription: Subscription;
-  private extendedPictures: BehaviorSubject<IExtendedPicture[]> = new BehaviorSubject([] as IExtendedPicture[]);
+  private readonly extendedPictures: BehaviorSubject<IExtendedPicture[]> = new BehaviorSubject([] as IExtendedPicture[]);
   extendedPictures$: Observable<IExtendedPicture[]> = this.extendedPictures.asObservable();
 
   @Input() tag: ITag;
 
-  constructor(private pictureService: PictureService, private layoutService: LayoutService) {}
+  constructor(private readonly pictureService: PictureService, private readonly layoutService: LayoutService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.tag) {
@@ -33,7 +33,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
         pictures[0].displayable = true; // mark the first picture as displayable
         return pictures.slice(0, count);
       })
-      .subscribe(extendedPictures => this.extendedPictures.next(extendedPictures));
+      .subscribe(extendedPictures => { this.extendedPictures.next(extendedPictures); });
     }
   }
 
