@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -8,9 +8,9 @@ import { IApiResponse } from '../interfaces';
 
 @Injectable()
 export class ApiService {
-  private apiUrl: string = API_URL;
+  private readonly apiUrl: string = API_URL;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private readonly httpClient: HttpClient) {}
 
   protected get<T>(resource: string, id?: string, nestedResource?: string): Observable<T> {
     const url = `${this.apiUrl}/${resource}${id ? `/${id}` : ''}${nestedResource ? `/${nestedResource}` : ''}`;

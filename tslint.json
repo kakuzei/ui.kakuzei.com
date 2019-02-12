@@ -31,10 +31,15 @@
       "camelCase"
     ],
     "i18n": false,
+    "increment-decrement": false,
     "indent": [
       true,
       "spaces",
       2
+    ],
+    "interface-name": [
+      true,
+      "always-prefix"
     ],
     "import-blacklist": [
       true,
@@ -85,6 +90,7 @@
       true,
       "single"
     ],
+    "strict-boolean-expressions": false,
     "trackBy-function": false,
     "typedef": [
       true,

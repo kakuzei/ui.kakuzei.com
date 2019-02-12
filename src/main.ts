@@ -21,4 +21,4 @@ ga('send', 'pageview');`;
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  .catch(error => console.error(error));
+  .catch(error => { console.error(error); });
