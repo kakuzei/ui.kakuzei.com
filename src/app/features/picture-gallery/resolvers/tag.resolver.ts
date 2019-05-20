@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
-import { empty, Observable } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { ITag } from '../interfaces';
@@ -15,7 +15,7 @@ export class TagResolver {
       .pipe(
         catchError(() => {
           this.router.navigate(['/'], { replaceUrl: true }); // tslint:disable-line:no-floating-promises
-          return empty();
+          return EMPTY;
         })
       );
   }
