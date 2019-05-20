@@ -28,11 +28,13 @@ export class GalleryComponent implements OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.tag) {
       this.resetView();
-      this.subscription = combineLatest(this.getExtendedPictures(), this.visiblePicturesCount$, (pictures, count) => {
-        this.pictureCount = pictures.length;
-        pictures[0].displayable = true; // mark the first picture as displayable
-        return pictures.slice(0, count);
-      })
+      this.subscription = combineLatest([this.getExtendedPictures(), this.visiblePicturesCount$]).pipe(
+        map(([pictures, count]) => {
+          this.pictureCount = pictures.length;
+          pictures[0].displayable = true; // mark the first picture as displayable
+          return pictures.slice(0, count);
+        })
+      )
       .subscribe(extendedPictures => { this.extendedPictures.next(extendedPictures); });
     }
   }
