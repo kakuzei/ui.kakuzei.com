@@ -4,7 +4,7 @@
     "tslint-angular"
   ],
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "codelyzer"
   ],
   "rules": {
     "array-type": [
@@ -28,7 +28,7 @@
       "app",
       "camelCase"
     ],
-    "i18n": false,
+    "template-i18n": false,
     "increment-decrement": false,
     "indent": [
       true,
@@ -89,7 +89,7 @@
       "single"
     ],
     "strict-boolean-expressions": false,
-    "trackBy-function": false,
+    "template-use-track-by-function": false,
     "trailing-comma": [
       true,
       {
