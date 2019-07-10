@@ -18,10 +18,10 @@ export class GalleryComponent implements OnChanges, OnDestroy {
   private readonly visiblePicturesCount: BehaviorSubject<number> = new BehaviorSubject(this.initialVisiblePictureCount);
   private readonly visiblePicturesCount$: Observable<number> = this.visiblePicturesCount.asObservable();
   private subscription: Subscription;
-  private readonly extendedPictures: BehaviorSubject<IExtendedPicture[]> = new BehaviorSubject([] as IExtendedPicture[]);
+  private readonly extendedPictures: BehaviorSubject<IExtendedPicture[]> = new BehaviorSubject<IExtendedPicture[]>([]);
   extendedPictures$: Observable<IExtendedPicture[]> = this.extendedPictures.asObservable();
 
-  @Input() tag: ITag;
+  @Input() tag?: ITag;
 
   constructor(private readonly pictureService: PictureService, private readonly layoutService: LayoutService) {}
 
@@ -91,7 +91,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
 
   private updatePictureVisibility(): void {
     const extendedPictures = this.extendedPictures.getValue();
-    let previous: IExtendedPicture | null = null;
+    let previous: IExtendedPicture | undefined;
     extendedPictures.forEach(extendedPicture => {
       if (previous && previous.visible) {
         extendedPicture.displayable = true; // mark the picture as displayable when the previous one is visible
