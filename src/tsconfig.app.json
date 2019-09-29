@@ -3,5 +3,13 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "types": []
-  }
+  },
+  "files": [
+    "main.ts",
+    "polyfills.ts",
+    "typings.d.ts"
+  ],
+  "include": [
+    "**/*.ts"
+  ]
 }
