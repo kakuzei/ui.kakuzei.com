@@ -1,5 +1,5 @@
 <app-picture
-  *ngFor="let extendedPicture of extendedPictures$ | async"
+  *ngFor="let extendedPicture of (extendedPictures$ | async)!"
   [picture]="extendedPicture.picture"
   [visible]="extendedPicture.visible"
   (displayed)="onDisplayed($event)"
