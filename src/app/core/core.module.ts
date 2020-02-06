@@ -7,16 +7,10 @@ import { components, LayoutComponent } from './components';
 import { services } from './services';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    RouterModule
-  ],
+  imports: [CommonModule, HttpClientModule, RouterModule],
   declarations: components,
   providers: services,
-  exports: [
-    LayoutComponent
-  ]
+  exports: [LayoutComponent]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() coreModule: CoreModule) {

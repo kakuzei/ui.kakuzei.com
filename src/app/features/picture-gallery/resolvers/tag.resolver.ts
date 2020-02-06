@@ -11,12 +11,11 @@ export class TagResolver {
   constructor(private readonly tagService: TagService, private readonly router: Router) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<ITag> {
-    return this.tagService.getTag(route.params.id)
-      .pipe(
-        catchError(() => {
-          this.router.navigate(['/'], { replaceUrl: true }); // tslint:disable-line:no-floating-promises
-          return EMPTY;
-        })
-      );
+    return this.tagService.getTag(route.params.id).pipe(
+      catchError(() => {
+        this.router.navigate(['/'], { replaceUrl: true }); // tslint:disable-line:no-floating-promises
+        return EMPTY;
+      })
+    );
   }
 }

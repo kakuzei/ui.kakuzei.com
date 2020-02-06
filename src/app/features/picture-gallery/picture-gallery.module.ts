@@ -7,14 +7,8 @@ import { resolvers } from './resolvers';
 import { services } from './services';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PictureGalleryRoutingModule
-  ],
+  imports: [CommonModule, PictureGalleryRoutingModule],
   declarations: components,
-  providers: [
-    ...resolvers,
-    ...services
-  ]
+  providers: [...resolvers, ...services]
 })
 export class PictureGalleryModule {}

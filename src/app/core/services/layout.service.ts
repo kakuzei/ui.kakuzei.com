@@ -4,15 +4,13 @@ import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class LayoutService {
-  private id: number = 0;
-  footerVisibility: string = 'hidden';
+  private id = 0;
+  footerVisibility = 'hidden';
 
   constructor(private readonly router: Router) {
-    this.router.events
-      .pipe(
-        filter(event => event instanceof NavigationEnd)
-      )
-      .subscribe(() => { this.hideFooter(); });
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
+      this.hideFooter();
+    });
   }
 
   domId(): string {

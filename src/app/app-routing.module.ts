@@ -6,20 +6,16 @@ import { PictureGalleryModule } from 'app/features/picture-gallery/picture-galle
 
 const routes: Routes = [
   {
-    path: '', component: LayoutComponent,
-    loadChildren: (): Promise<PictureGalleryModule> => (
+    path: '',
+    component: LayoutComponent,
+    loadChildren: (): Promise<PictureGalleryModule> =>
       import('app/features/picture-gallery/picture-gallery.module').then(module => module.PictureGalleryModule)
-    )
   },
   { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
