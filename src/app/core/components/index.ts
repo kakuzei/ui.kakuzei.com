@@ -4,8 +4,4 @@ import { LayoutComponent } from './layout/layout.component';
 
 export { LayoutComponent } from './layout/layout.component';
 
-export const components = [
-  FooterComponent,
-  HeaderComponent,
-  LayoutComponent
-];
+export const components = [FooterComponent, HeaderComponent, LayoutComponent];

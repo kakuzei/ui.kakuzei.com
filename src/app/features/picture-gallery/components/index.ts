@@ -6,9 +6,4 @@ import { PictureComponent } from './picture/picture.component';
 export { NavComponent } from './nav/nav.component';
 export { PageComponent } from './page/page.component';
 
-export const components = [
-  GalleryComponent,
-  NavComponent,
-  PageComponent,
-  PictureComponent
-];
+export const components = [GalleryComponent, NavComponent, PageComponent, PictureComponent];

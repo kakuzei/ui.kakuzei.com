@@ -28,14 +28,17 @@ export class GalleryComponent implements OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.tag) {
       this.resetView();
-      this.subscription = combineLatest([this.getExtendedPictures(), this.visiblePicturesCount$]).pipe(
-        map(([pictures, count]) => {
-          this.pictureCount = pictures.length;
-          pictures[0].displayable = true; // mark the first picture as displayable
-          return pictures.slice(0, count);
-        })
-      )
-      .subscribe(extendedPictures => { this.extendedPictures.next(extendedPictures); });
+      this.subscription = combineLatest([this.getExtendedPictures(), this.visiblePicturesCount$])
+        .pipe(
+          map(([pictures, count]) => {
+            this.pictureCount = pictures.length;
+            pictures[0].displayable = true; // mark the first picture as displayable
+            return pictures.slice(0, count);
+          })
+        )
+        .subscribe(extendedPictures => {
+          this.extendedPictures.next(extendedPictures);
+        });
     }
   }
 
@@ -63,9 +66,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
 
   private getExtendedPictures(): Observable<IExtendedPicture[]> {
     const pictures$ = this.tag ? this.pictureService.getPicturesByTag(this.tag) : this.pictureService.getPictures();
-    return pictures$.pipe(
-      map(pictures => pictures.map(picture => this.toExtendedPicture(picture)))
-    );
+    return pictures$.pipe(map(pictures => pictures.map(picture => this.toExtendedPicture(picture))));
   }
 
   private toExtendedPicture(picture: IPicture): IExtendedPicture {
@@ -79,7 +80,9 @@ export class GalleryComponent implements OnChanges, OnDestroy {
   private updateExtendedPicture(picture: IPicture, updateFunction: (extendedPicture: IExtendedPicture) => IExtendedPicture): void {
     const extendedPictures = this.extendedPictures.getValue();
     const matchingExtendedPicture = extendedPictures.find(extendedPicture => extendedPicture.picture.id === picture.id);
-    if (matchingExtendedPicture) { updateFunction(matchingExtendedPicture); }
+    if (matchingExtendedPicture) {
+      updateFunction(matchingExtendedPicture);
+    }
     this.extendedPictures.next(extendedPictures);
   }
 
@@ -106,8 +109,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
 
   private updateVisiblePictureCounter(): void {
     const extendedPictures = this.extendedPictures.getValue();
-    if (extendedPictures.slice(-3)
-      .filter(extendedPicture => !extendedPicture.displayed).length < 3) {
+    if (extendedPictures.slice(-3).filter(extendedPicture => !extendedPicture.displayed).length < 3) {
       this.visiblePicturesCount.next(this.visiblePicturesCount.getValue() + 5);
     }
   }

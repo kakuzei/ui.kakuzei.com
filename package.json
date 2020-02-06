@@ -6,27 +6,33 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "lint": "ng lint"
+    "lint": "eslint . --ext .js,.ts"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "9.0.0-rc.12",
-    "@angular/common": "9.0.0-rc.12",
-    "@angular/compiler": "9.0.0-rc.12",
-    "@angular/core": "9.0.0-rc.12",
-    "@angular/forms": "9.0.0-rc.12",
-    "@angular/platform-browser": "9.0.0-rc.12",
-    "@angular/platform-browser-dynamic": "9.0.0-rc.12",
-    "@angular/router": "9.0.0-rc.12",
+    "@angular/animations": "9.0.0",
+    "@angular/common": "9.0.0",
+    "@angular/compiler": "9.0.0",
+    "@angular/core": "9.0.0",
+    "@angular/forms": "9.0.0",
+    "@angular/platform-browser": "9.0.0",
+    "@angular/platform-browser-dynamic": "9.0.0",
+    "@angular/router": "9.0.0",
     "in-view": "0.6.1",
     "rxjs": "6.5.4",
     "zone.js": "0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "0.900.0-rc.12",
-    "@angular/cli": "9.0.0-rc.12",
-    "@angular/compiler-cli": "9.0.0-rc.12",
-    "@angular/language-service": "9.0.0-rc.12",
+    "@angular-devkit/build-angular": "0.900.0",
+    "@angular/cli": "9.0.0",
+    "@angular/compiler-cli": "9.0.0",
+    "@angular/language-service": "9.0.0",
+    "@typescript-eslint/eslint-plugin": "2.19.0",
+    "@typescript-eslint/parser": "2.19.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "1.19.1",
     "typescript": "3.7.5"
   }
 }

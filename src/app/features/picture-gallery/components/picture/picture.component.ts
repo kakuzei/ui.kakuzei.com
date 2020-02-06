@@ -1,6 +1,15 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter,
-         Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import * as inView from 'in-view';
 
 import { LayoutService } from 'app/core';
@@ -11,10 +20,7 @@ import { IPicture } from '../../interfaces';
   templateUrl: './picture.component.html',
   styleUrls: ['./picture.component.scss'],
   animations: [
-    trigger('pictureVisibilityChanged', [
-      state('hidden', style({ display: 'none' })),
-      state('shown', style({ display: 'block' }))
-    ]),
+    trigger('pictureVisibilityChanged', [state('hidden', style({ display: 'none' })), state('shown', style({ display: 'block' }))]),
     trigger('imageVisibilityChanged', [
       state('hidden', style({ opacity: 0 })),
       state('shown', style({ opacity: 1 })),
@@ -25,7 +31,7 @@ import { IPicture } from '../../interfaces';
 })
 export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
   domId: string;
-  visibility: string = 'hidden';
+  visibility = 'hidden';
 
   @Input() picture: IPicture;
 
@@ -48,11 +54,10 @@ export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   ngAfterViewInit(): void {
-    inView(`#${this.domId}`)
-      .once('enter', () => {
-        this.displayed.emit(this.picture);
-        this.displayed.complete();
-      });
+    inView(`#${this.domId}`).once('enter', () => {
+      this.displayed.emit(this.picture);
+      this.displayed.complete();
+    });
   }
 
   onLoad(): void {
