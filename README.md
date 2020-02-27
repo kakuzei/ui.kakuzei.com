@@ -6,7 +6,7 @@ angular.kakuzei.com provides a UI for browsing pictures.
 
 ### Requirements
 
-* Node 8 with npm
+* Node 12 with npm
 
 ### Docker
 
