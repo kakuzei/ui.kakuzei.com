@@ -1,4 +1,4 @@
-## Angular UI for kakuzei.com website [![Build Status](https://travis-ci.org/kakuzei/angular.kakuzei.com.svg?branch=master)](https://travis-ci.org/kakuzei/angular.kakuzei.com) 
+## Angular UI for kakuzei.com website ![build](https://github.com/kakuzei/angular.kakuzei.com/workflows/build/badge.svg)
 
 ### Introduction
 
