@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     loadChildren: (): Promise<PictureGalleryModule> =>
-      import('app/features/picture-gallery/picture-gallery.module').then(module => module.PictureGalleryModule)
+      import('app/features/picture-gallery/picture-gallery.module').then((module) => module.PictureGalleryModule)
   },
   { path: '**', redirectTo: '' }
 ];

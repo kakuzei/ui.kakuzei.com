@@ -14,6 +14,6 @@ export class ApiService {
 
   protected get<T>(resource: string, id?: string, nestedResource?: string): Observable<T> {
     const url = `${this.apiUrl}/${resource}${id ? `/${id}` : ''}${nestedResource ? `/${nestedResource}` : ''}`;
-    return this.httpClient.get<IApiResponse<T>>(url).pipe(map(response => response.data));
+    return this.httpClient.get<IApiResponse<T>>(url).pipe(map((response) => response.data));
   }
 }
