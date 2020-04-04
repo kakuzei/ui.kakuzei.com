@@ -15,7 +15,7 @@ ui.kakuzei.com provides a UI for browsing pictures.
 Build a docker image by executing the following command:
 
 ```bash
-docker build -t kakuzei.com/ui .
+docker build -t kakuzei/ui.kakuzei.com .
 ```
 
 ##### Start the container
@@ -23,7 +23,7 @@ docker build -t kakuzei.com/ui .
 Start the UI by executing the following command:
 
 ```bash
-docker run -d -p 80:80 443:433 kakuzei.com/ui
+docker run -d -p 80:80 443:433 kakuzei/ui.kakuzei.com
 ```
 
 ### License
