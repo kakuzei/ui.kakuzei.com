@@ -2,7 +2,7 @@
 
 ### Introduction
 
-angular.kakuzei.com provides a UI for browsing pictures.
+ui.kakuzei.com provides a UI for browsing pictures.
 
 ### Requirements
 
@@ -15,7 +15,7 @@ angular.kakuzei.com provides a UI for browsing pictures.
 Build a docker image by executing the following command:
 
 ```bash
-docker build -t kakuzei.com/angular .
+docker build -t kakuzei.com/ui .
 ```
 
 ##### Start the container
@@ -23,7 +23,7 @@ docker build -t kakuzei.com/angular .
 Start the UI by executing the following command:
 
 ```bash
-docker run -d -p 80:80 443:433 kakuzei.com/angular
+docker run -d -p 80:80 443:433 kakuzei.com/ui
 ```
 
 ### License
