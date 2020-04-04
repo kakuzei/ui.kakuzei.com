@@ -8,7 +8,7 @@ export class LayoutService {
   footerVisibility = 'hidden';
 
   constructor(private readonly router: Router) {
-    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.hideFooter();
     });
   }

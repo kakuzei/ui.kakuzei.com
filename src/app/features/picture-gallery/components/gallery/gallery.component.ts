@@ -36,7 +36,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
             return pictures.slice(0, count);
           })
         )
-        .subscribe(extendedPictures => {
+        .subscribe((extendedPictures) => {
           this.extendedPictures.next(extendedPictures);
         });
     }
@@ -66,7 +66,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
 
   private getExtendedPictures(): Observable<IExtendedPicture[]> {
     const pictures$ = this.tag ? this.pictureService.getPicturesByTag(this.tag) : this.pictureService.getPictures();
-    return pictures$.pipe(map(pictures => pictures.map(picture => this.toExtendedPicture(picture))));
+    return pictures$.pipe(map((pictures) => pictures.map((picture) => this.toExtendedPicture(picture))));
   }
 
   private toExtendedPicture(picture: IPicture): IExtendedPicture {
@@ -79,7 +79,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
 
   private updateExtendedPicture(picture: IPicture, updateFunction: (extendedPicture: IExtendedPicture) => IExtendedPicture): void {
     const extendedPictures = this.extendedPictures.getValue();
-    const matchingExtendedPicture = extendedPictures.find(extendedPicture => extendedPicture.picture.id === picture.id);
+    const matchingExtendedPicture = extendedPictures.find((extendedPicture) => extendedPicture.picture.id === picture.id);
     if (matchingExtendedPicture) {
       updateFunction(matchingExtendedPicture);
     }
@@ -95,7 +95,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
   private updatePictureVisibility(): void {
     const extendedPictures = this.extendedPictures.getValue();
     let previous: IExtendedPicture | undefined;
-    extendedPictures.forEach(extendedPicture => {
+    extendedPictures.forEach((extendedPicture) => {
       if (previous && previous.visible) {
         extendedPicture.displayable = true; // mark the picture as displayable when the previous one is visible
       }
@@ -109,14 +109,14 @@ export class GalleryComponent implements OnChanges, OnDestroy {
 
   private updateVisiblePictureCounter(): void {
     const extendedPictures = this.extendedPictures.getValue();
-    if (extendedPictures.slice(-3).filter(extendedPicture => !extendedPicture.displayed).length < 3) {
+    if (extendedPictures.slice(-3).filter((extendedPicture) => !extendedPicture.displayed).length < 3) {
       this.visiblePicturesCount.next(this.visiblePicturesCount.getValue() + 5);
     }
   }
 
   private checkAllVisible(): void {
     const extendedPictures = this.extendedPictures.getValue();
-    if (extendedPictures.filter(extendedPicture => extendedPicture.visible).length === this.pictureCount) {
+    if (extendedPictures.filter((extendedPicture) => extendedPicture.visible).length === this.pictureCount) {
       this.layoutService.displayFooter();
     }
   }

@@ -21,6 +21,6 @@ ga('send', 'pageview');`;
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  .catch(error => {
+  .catch((error) => {
     console.error(error);
   }); // tslint:disable-line:no-console
