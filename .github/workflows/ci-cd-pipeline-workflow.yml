@@ -29,7 +29,7 @@ jobs:
         echo "event_name = ${{ github.event_name }}"
         ls ~
         ls .
-        npm config list
+        npm config ls -l
     - name: Cache npm packages
       uses: actions/cache@v1
       env:
