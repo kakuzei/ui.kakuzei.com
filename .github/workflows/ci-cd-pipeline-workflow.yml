@@ -27,8 +27,9 @@ jobs:
         echo "head_ref = ${{ github.head_ref }}"
         echo "base_ref = ${{ github.base_ref }}"
         echo "event_name = ${{ github.event_name }}"
-        ls ~/.npm
-        ls node_modules
+        ls ~
+        ls .
+        npm config list
     - name: Cache npm packages
       uses: actions/cache@v1
       env:
@@ -47,8 +48,8 @@ jobs:
 
     - name: Check after
       run: |
-        ls ~/.npm
-        ls node_modules
+        ls ~
+        ls .
 
     - name: Install npm dependencies
       run: |
