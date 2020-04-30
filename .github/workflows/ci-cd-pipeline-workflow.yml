@@ -30,6 +30,7 @@ jobs:
         ls ~
         ls .
         npm config ls -l
+        npm config get cache
     - name: Cache npm packages
       uses: actions/cache@v1
       env:
