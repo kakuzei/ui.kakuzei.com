@@ -19,18 +19,6 @@ jobs:
       with:
         node-version: 12.x
 
-    - name: Check before
-      run: |
-        echo "event = ${{ github.event }}"
-        echo "event_path = ${{ github.event_path }}"
-        echo "event_name = ${{ github.event_name }}"
-        echo "head_ref = ${{ github.head_ref }}"
-        echo "base_ref = ${{ github.base_ref }}"
-        echo "event_name = ${{ github.event_name }}"
-        ls ~
-        ls .
-        npm config ls -l
-        npm config get cache
     - name: Cache npm packages
       uses: actions/cache@v1
       env:
@@ -49,14 +37,14 @@ jobs:
 
     - name: Check after
       run: |
-        ls ~
-        ls .
+        ls node_modules
+        ls /home/runner/.npm
 
     - name: Install npm dependencies
       run: |
         npm install
 
-    - name: Run TSLint
+    - name: Run Lint
       run: |
         npm run lint
 
