@@ -37,7 +37,6 @@ jobs:
 
     - name: Check after
       run: |
-        ls node_modules
         ls /home/runner/.npm
 
     - name: Install npm dependencies
