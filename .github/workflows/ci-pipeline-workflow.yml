@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
@@ -19,23 +19,15 @@ jobs:
       with:
         node-version: 12.x
 
-    - name: Cache npm packages
-      uses: actions/cache@v1
-      env:
-        cache-name: cache-npm-packages
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-
     - name: Cache node modules
+      id: cache-node-modules
       uses: actions/cache@v1
-      env:
-        cache-name: cache-node-modules
       with:
         path: node_modules
-        key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
 
     - name: Install npm dependencies
+      if: steps.cache-node-modules.outputs.cache-hit != 'true'
       run: |
         npm install
 
@@ -55,6 +47,15 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v2
 
-    - name: Get the current version
-      run: |
-        echo $(jq -r ".name" package.json)
+    - name: Define application version
+      id: app-version
+      run: echo "::set-output name=version::$(jq -r ".version" package.json)"
+
+    - name: Build & push Docker image
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: kakuzei/ui.kakuzei.com
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        snapshot: true
+        tags: "latest,{{ steps.app-version.outputs.version }}"
