@@ -1,4 +1,4 @@
-## UI for kakuzei.com website using the Angular framework ![build](https://github.com/kakuzei/angular.kakuzei.com/workflows/build/badge.svg)
+## UI for kakuzei.com website using the Angular framework ![build](https://github.com/kakuzei/angular.kakuzei.com/workflows/CI%20Pipeline/badge.svg)
 
 ### Introduction
 
