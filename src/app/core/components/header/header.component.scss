@@ -6,7 +6,7 @@ header {
   padding: var(--padding);
 
   .logo svg {
-    filter: drop-shadow(1px 1px 2px #949494);
+    filter: drop-shadow(1px 1px 2px var(--primary-color-shadow));
   }
 
   .logo svg circle {
@@ -16,7 +16,7 @@ header {
   .title {
     font-size: var(--font-size-xl);
     font-weight: 500;
-    text-shadow: -1px -1px 1px #efebe9, 1px 1px 1px #949494;
+    text-shadow: -1px -1px 1px var(--background-color), 1px 1px 1px var(--primary-color-shadow);
   }
 
   .logo svg circle, .title {
