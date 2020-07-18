@@ -13,7 +13,7 @@ export class TagResolver {
   resolve(route: ActivatedRouteSnapshot): Observable<ITag> {
     return this.tagService.getTag(route.params.id).pipe(
       catchError(() => {
-        this.router.navigate(['/'], { replaceUrl: true }); // tslint:disable-line:no-floating-promises
+        this.router.navigate(['/'], { replaceUrl: true }); // eslint-disable-line @typescript-eslint/no-floating-promises
         return EMPTY;
       })
     );

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { API_URL } from 'environments/config';
+import { API_URL } from 'src/environments/config';
 import { IApiResponse } from '../interfaces';
 
 @Injectable()

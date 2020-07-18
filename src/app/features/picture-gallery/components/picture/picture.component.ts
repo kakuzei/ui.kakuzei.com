@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import * as inView from 'in-view';
 
-import { LayoutService } from 'app/core';
+import { LayoutService } from 'src/app/core';
 import { IPicture } from '../../interfaces';
 
 @Component({
@@ -37,9 +37,9 @@ export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
 
   @Input() visible: boolean;
 
-  @Output() readonly displayed: EventEmitter<IPicture> = new EventEmitter();
+  @Output() readonly displayed: EventEmitter<IPicture> = new EventEmitter<IPicture>();
 
-  @Output() readonly loaded: EventEmitter<IPicture> = new EventEmitter();
+  @Output() readonly loaded: EventEmitter<IPicture> = new EventEmitter<IPicture>();
 
   constructor(private readonly layoutService: LayoutService) {}
 
@@ -54,6 +54,7 @@ export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   ngAfterViewInit(): void {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     inView(`#${this.domId}`).once('enter', () => {
       this.displayed.emit(this.picture);
       this.displayed.complete();
