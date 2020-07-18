@@ -1,4 +1,4 @@
-import { IApi } from 'app/core';
+import { IApi } from 'src/app/core';
 
 interface IPictureAttributes {
   name: string;

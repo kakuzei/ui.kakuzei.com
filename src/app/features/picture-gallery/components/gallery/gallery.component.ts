@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, Simple
 import { BehaviorSubject, combineLatest, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { LayoutService } from 'app/core';
+import { LayoutService } from 'src/app/core';
 import { IExtendedPicture, IPicture, ITag } from '../../interfaces';
 import { PictureService } from '../../services';
 

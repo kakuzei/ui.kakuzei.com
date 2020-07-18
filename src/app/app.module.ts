@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from 'app/app-routing.module';
-import { AppComponent } from 'app/app.component';
-import { CoreModule } from 'app/core';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { AppComponent } from 'src/app/app.component';
+import { CoreModule } from 'src/app/core';
 
 @NgModule({
   declarations: [AppComponent],

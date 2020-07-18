@@ -2,8 +2,7 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
+    project: ['./tsconfig.app.json'],
   },
   plugins: [
     '@typescript-eslint',
@@ -21,12 +20,6 @@ module.exports = {
       'error',
       {
         "allowSingleExtends": true
-      }
-    ],
-    '@typescript-eslint/interface-name-prefix': [
-      'error',
-      {
-        "prefixWithI": "always"
       }
     ]
   }
