@@ -23,7 +23,7 @@ docker build -t kakuzei/ui.kakuzei.com .
 Start the UI by executing the following command:
 
 ```bash
-docker run -d -p 80:80 443:433 kakuzei/ui.kakuzei.com
+docker run -d -p 80:80 -p 443:433 kakuzei/ui.kakuzei.com
 ```
 
 ### License
