@@ -1,4 +1,4 @@
-FROM nginx:1.19.2-alpine
+FROM nginx:1.19.06-alpine
 
 ENV TEMPORARY_PACKAGES nodejs npm
 
