@@ -1,11 +1,11 @@
 {
   "name": "angular.kakuzei.com",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "lint": "eslint . --ext .js,.ts"
   },
   "private": true,
