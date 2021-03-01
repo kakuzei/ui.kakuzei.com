@@ -1,4 +1,4 @@
-FROM nginx:1.19.6-alpine
+FROM nginx:1.19.7-alpine
 
 ENV TEMPORARY_PACKAGES nodejs npm
 
@@ -12,7 +12,7 @@ RUN apk update \
  && rm -rf /var/cache/apk/* \
  && npm i -g npm \
  && npm install \
- && npm run build \
+ && npm run build --prod \
  && mkdir -p /app/dist \
  && mkdir -p /app/certs \
  && touch /app/certs/fullchain.pem \
