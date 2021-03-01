@@ -12,7 +12,7 @@ RUN apk update \
  && rm -rf /var/cache/apk/* \
  && npm i -g npm \
  && npm install \
- && npm run build --prod \
+ && npm run build \
  && mkdir -p /app/dist \
  && mkdir -p /app/certs \
  && touch /app/certs/fullchain.pem \
