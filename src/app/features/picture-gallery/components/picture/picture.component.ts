@@ -48,7 +48,7 @@ export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.visible && this.visible) {
+    if (changes['visible'] && this.visible) {
       this.visibility = 'shown';
     }
   }

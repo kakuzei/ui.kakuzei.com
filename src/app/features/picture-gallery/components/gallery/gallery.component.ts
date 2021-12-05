@@ -26,7 +26,7 @@ export class GalleryComponent implements OnChanges, OnDestroy {
   constructor(private readonly pictureService: PictureService, private readonly layoutService: LayoutService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.tag) {
+    if (changes['tag']) {
       this.resetView();
       this.subscription = combineLatest([this.getExtendedPictures(), this.visiblePicturesCount$])
         .pipe(

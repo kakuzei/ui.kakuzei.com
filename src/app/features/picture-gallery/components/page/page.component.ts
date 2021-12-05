@@ -16,6 +16,6 @@ export class PageComponent implements OnInit {
   constructor(private readonly activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.tag$ = this.activatedRoute.data.pipe(map((data) => data.tag as ITag));
+    this.tag$ = this.activatedRoute.data.pipe(map((data) => data['tag'] as ITag));
   }
 }
