@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import { LoadChildrenCallback, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { LayoutComponent } from 'src/app/core';
-import { PictureGalleryModule } from 'src/app/features/picture-gallery/picture-gallery.module';
 
 const routes: Routes = [
   {
