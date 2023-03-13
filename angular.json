@@ -93,5 +93,7 @@
       }
     }
   },
-  "defaultProject": "kakuzei"
+  "cli": {
+    "analytics": false
+  }
 }
