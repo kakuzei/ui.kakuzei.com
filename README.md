@@ -6,7 +6,7 @@ ui.kakuzei.com provides a UI for browsing pictures.
 
 ### Requirements
 
-* Node 12 with npm
+* Node 20 with npm
 
 ### Docker
 

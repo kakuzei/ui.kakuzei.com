@@ -8,7 +8,10 @@ import { TagService } from '../services';
 
 @Injectable()
 export class TagResolver {
-  constructor(private readonly tagService: TagService, private readonly router: Router) {}
+  constructor(
+    private readonly tagService: TagService,
+    private readonly router: Router
+  ) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<ITag> {
     return this.tagService.getTag(route.params['id'] as string).pipe(
