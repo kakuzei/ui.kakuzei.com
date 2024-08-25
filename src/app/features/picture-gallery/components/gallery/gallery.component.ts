@@ -15,7 +15,7 @@ import { PictureService } from '../../services';
 export class GalleryComponent implements OnChanges, OnDestroy {
   private pictureCount: number;
   private readonly initialVisiblePictureCount: number = 5;
-  private readonly visiblePicturesCount: BehaviorSubject<number> = new BehaviorSubject(this.initialVisiblePictureCount);
+  private readonly visiblePicturesCount = new BehaviorSubject<number>(this.initialVisiblePictureCount);
   private readonly visiblePicturesCount$: Observable<number> = this.visiblePicturesCount.asObservable();
   private subscription: Subscription;
   private readonly extendedPictures: BehaviorSubject<IExtendedPicture[]> = new BehaviorSubject<IExtendedPicture[]>([]);

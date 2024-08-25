@@ -4,6 +4,7 @@
   <img
     [@imageVisibilityChanged]="visibility"
     [src]="picture.links.src"
+    [alt]="picture.attributes.name"
     [title]="picture.attributes.name"
     (load)="onLoad()">
 </picture>

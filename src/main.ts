@@ -23,4 +23,4 @@ platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch((error) => {
     console.error(error);
-  }); // tslint:disable-line:no-console
+  });

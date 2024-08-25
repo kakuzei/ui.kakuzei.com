@@ -1,3 +1,6 @@
 .git
 .dockerignore
-node_modules/*
+dist
+node_modules
+README.md
+Dockerfile
