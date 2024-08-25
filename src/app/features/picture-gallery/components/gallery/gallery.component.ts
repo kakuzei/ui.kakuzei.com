@@ -23,7 +23,10 @@ export class GalleryComponent implements OnChanges, OnDestroy {
 
   @Input() tag?: ITag;
 
-  constructor(private readonly pictureService: PictureService, private readonly layoutService: LayoutService) {}
+  constructor(
+    private readonly pictureService: PictureService,
+    private readonly layoutService: LayoutService
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['tag']) {

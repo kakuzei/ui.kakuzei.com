@@ -74,15 +74,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "kakuzei:build",
-            "proxyConfig": "proxy-config.json"
+            "proxyConfig": "proxy-config.json",
+            "buildTarget": "kakuzei:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "kakuzei:build:production"
+              "buildTarget": "kakuzei:build:production"
             },
             "development": {
-              "browserTarget": "kakuzei:build:development"
+              "buildTarget": "kakuzei:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -90,7 +90,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kakuzei:build"
+            "buildTarget": "kakuzei:build"
           }
         }
       }
