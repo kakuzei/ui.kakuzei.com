@@ -8,4 +8,4 @@ interface IPictureLinks {
   src: string;
 }
 
-export interface IPicture extends IApi<IPictureAttributes, IPictureLinks> {}
+export interface IPicture extends IApi<IPictureAttributes, IPictureLinks> {} // eslint-disable-line @typescript-eslint/no-empty-object-type

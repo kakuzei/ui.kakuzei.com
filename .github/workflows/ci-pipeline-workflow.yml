@@ -12,16 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Install node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
-        node-version: 16.x
+        node-version: 20.x
 
     - name: Cache node modules
       id: cache-node-modules
-      uses: actions/cache@v1
+      uses: actions/cache@v4
       with:
         path: node_modules
         key: ${{ runner.os }}-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
@@ -46,7 +46,7 @@ jobs:
     needs: build
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Define application version
       id: app-version
@@ -59,7 +59,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build & push Docker image
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: kakuzei/ui.kakuzei.com
         username: ${{ secrets.DOCKER_USERNAME }}

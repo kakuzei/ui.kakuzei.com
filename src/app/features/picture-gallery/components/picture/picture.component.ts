@@ -54,7 +54,7 @@ export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   ngAfterViewInit(): void {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+     
     inView(`#${this.domId}`).once('enter', () => {
       this.displayed.emit(this.picture);
       this.displayed.complete();

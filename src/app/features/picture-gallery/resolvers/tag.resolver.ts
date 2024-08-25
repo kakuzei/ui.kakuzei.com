@@ -16,7 +16,7 @@ export class TagResolver {
   resolve(route: ActivatedRouteSnapshot): Observable<ITag> {
     return this.tagService.getTag(route.params['id'] as string).pipe(
       catchError(() => {
-        this.router.navigate(['/'], { replaceUrl: true }); // eslint-disable-line @typescript-eslint/no-floating-promises
+        this.router.navigate(['/'], { replaceUrl: true });  
         return EMPTY;
       })
     );
