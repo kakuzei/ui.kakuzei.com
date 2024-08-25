@@ -19,4 +19,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN mkdir /app/certs \
  && touch /app/certs/fullchain.pem \
- && touch /app/certs/privkey.pem
+ && touch /app/certs/privkey.pem \
+ && mkdir /app/log
