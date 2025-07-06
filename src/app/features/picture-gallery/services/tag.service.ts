@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { ApiService } from 'src/app/core';
-import { TAG_RESOURCE } from 'src/environments/config';
+import { ApiService } from '../../../core';
+import { TAG_RESOURCE } from '../../../../environments/config';
 import { ITag } from '../interfaces';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TagService extends ApiService {
   getTags(): Observable<ITag[]> {
     return this.get<ITag[]>(TAG_RESOURCE);
