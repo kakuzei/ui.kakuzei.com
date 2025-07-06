@@ -1,12 +1,20 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { LayoutService } from '../../services';
+import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss'],
+  styleUrl: './layout.component.scss',
+  imports: [
+    FooterComponent,
+    HeaderComponent,
+    RouterModule
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent {
-  constructor(public layoutService: LayoutService) {}
+  public layoutService = inject(LayoutService);
 }

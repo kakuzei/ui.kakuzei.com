@@ -1,16 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { API_URL } from 'src/environments/config';
 import { IApiResponse } from '../interfaces';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ApiService {
   private readonly apiUrl: string = API_URL;
-
-  constructor(private readonly httpClient: HttpClient) {}
+  private readonly httpClient = inject(HttpClient);
 
   protected get<T>(resource: string, id?: string, nestedResource?: string): Observable<T> {
     const url = `${this.apiUrl}/${resource}${id ? `/${id}` : ''}${nestedResource ? `/${nestedResource}` : ''}`;

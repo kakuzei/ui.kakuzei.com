@@ -1,7 +1,9 @@
+@let extendedPictures = extendedPictures$ | async;
+@for (extendedPicture of extendedPictures; track extendedPicture.picture.id) {
 <app-picture
-  *ngFor="let extendedPicture of (extendedPictures$ | async)!"
   [picture]="extendedPicture.picture"
   [visible]="extendedPicture.visible"
   (displayed)="onDisplayed($event)"
   (loaded)="onLoaded($event)">
 </app-picture>
+}

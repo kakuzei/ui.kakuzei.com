@@ -1,4 +1,4 @@
-import { IApi } from 'src/app/core';
+import { IApi } from '../../../core';
 
 interface ITagAttributes {
   name: string;

@@ -1,18 +1,27 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { LayoutService } from 'src/app/core';
+import { LayoutService } from '../../../../core';
 import { IExtendedPicture, IPicture, ITag } from '../../interfaces';
 import { PictureService } from '../../services';
+import { PictureComponent } from '../picture/picture.component'
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss'],
+  styleUrl: './gallery.component.scss',
+  imports: [
+    AsyncPipe,
+    PictureComponent
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GalleryComponent implements OnChanges, OnDestroy {
+  private pictureService = inject(PictureService);
+  private layoutService = inject(LayoutService);
+
   private pictureCount: number;
   private readonly initialVisiblePictureCount: number = 5;
   private readonly visiblePicturesCount = new BehaviorSubject<number>(this.initialVisiblePictureCount);
@@ -22,11 +31,6 @@ export class GalleryComponent implements OnChanges, OnDestroy {
   extendedPictures$: Observable<IExtendedPicture[]> = this.extendedPictures.asObservable();
 
   @Input() tag?: ITag;
-
-  constructor(
-    private readonly pictureService: PictureService,
-    private readonly layoutService: LayoutService
-  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['tag']) {

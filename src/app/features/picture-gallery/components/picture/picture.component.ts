@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  inject,
   Input,
   OnChanges,
   OnInit,
@@ -12,13 +13,13 @@ import {
 } from '@angular/core';
 import * as inView from 'in-view';
 
-import { LayoutService } from 'src/app/core';
+import { LayoutService } from '../../../../core';
 import { IPicture } from '../../interfaces';
 
 @Component({
   selector: 'app-picture',
   templateUrl: './picture.component.html',
-  styleUrls: ['./picture.component.scss'],
+  styleUrl: './picture.component.scss',
   animations: [
     trigger('pictureVisibilityChanged', [state('hidden', style({ display: 'none' })), state('shown', style({ display: 'block' }))]),
     trigger('imageVisibilityChanged', [
@@ -30,6 +31,8 @@ import { IPicture } from '../../interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
+  private readonly layoutService = inject(LayoutService);
+
   domId: string;
   visibility = 'hidden';
 
@@ -40,8 +43,6 @@ export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
   @Output() readonly displayed: EventEmitter<IPicture> = new EventEmitter<IPicture>();
 
   @Output() readonly loaded: EventEmitter<IPicture> = new EventEmitter<IPicture>();
-
-  constructor(private readonly layoutService: LayoutService) {}
 
   ngOnInit(): void {
     this.domId = this.layoutService.domId();
@@ -54,7 +55,7 @@ export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   ngAfterViewInit(): void {
-     
+
     inView(`#${this.domId}`).once('enter', () => {
       this.displayed.emit(this.picture);
       this.displayed.complete();

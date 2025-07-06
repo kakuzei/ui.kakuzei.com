@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { ITag } from '../../interfaces';
@@ -6,13 +8,17 @@ import { TagService } from '../../services';
 
 @Component({
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss'],
+  styleUrl: './nav.component.scss',
+  imports: [
+    AsyncPipe,
+    RouterModule
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavComponent implements OnInit {
-  tags$: Observable<ITag[]>;
+  private readonly tagService = inject(TagService);
 
-  constructor(private readonly tagService: TagService) {}
+  tags$: Observable<ITag[]>;
 
   ngOnInit(): void {
     this.tags$ = this.tagService.getTags();
