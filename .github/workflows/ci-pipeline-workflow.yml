@@ -50,7 +50,9 @@ jobs:
 
     - name: Define application version
       id: app-version
-      run: echo "::set-output name=version::$(jq -r ".version" package.json)"
+      run: |
+        version=$(jq -r ".version" package.json)
+        echo "version=${version}" >> $GITHUB_OUTPUT
 
     - name: Create GitHub release
       uses: ncipollo/release-action@v1
