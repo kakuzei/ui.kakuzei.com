@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { LayoutService } from '../../services';
@@ -12,8 +12,7 @@ import { HeaderComponent } from '../header/header.component';
     FooterComponent,
     HeaderComponent,
     RouterModule
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  ]
 })
 export class LayoutComponent {
   public layoutService = inject(LayoutService);

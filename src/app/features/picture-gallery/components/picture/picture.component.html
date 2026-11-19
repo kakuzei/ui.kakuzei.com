@@ -1,8 +1,8 @@
 <picture
   [id]="domId"
-  [@pictureVisibilityChanged]="visibility">
+  [class.is-shown]="pictureVisibilityState() === 'shown'">
   <img
-    [@imageVisibilityChanged]="visibility"
+    [class.is-shown]="imageVisibilityState() === 'shown'"
     [src]="picture.links.src"
     [alt]="picture.attributes.name"
     [title]="picture.attributes.name"

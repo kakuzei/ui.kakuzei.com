@@ -5,6 +5,11 @@ footer {
   opacity: 0;
   padding: var(--padding);
 
+  &.is-shown {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+  }
+
   .copyright {
     font-size: var(--font-size-s);
   }

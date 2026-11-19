@@ -7,7 +7,7 @@ import { filter } from 'rxjs/operators';
 })
 export class LayoutService {
   private id = 0;
-  footerVisibility = 'hidden';
+  footerVisibility: 'hidden' | 'shown' = 'hidden';
   private readonly router = inject(Router);
 
   constructor() {

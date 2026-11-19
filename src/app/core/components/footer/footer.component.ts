@@ -1,19 +1,10 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss',
-  animations: [
-    trigger('visibilityChanged', [
-      state('hidden', style({ opacity: 0 })),
-      state('shown', style({ opacity: 1 })),
-      transition('hidden => shown', animate('0.5s ease-in'))
-    ])
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  @Input() visibility: string;
+  visibility = input<'hidden' | 'shown'>('hidden');
 }

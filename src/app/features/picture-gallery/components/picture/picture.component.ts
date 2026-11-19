@@ -1,7 +1,5 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   inject,
@@ -9,9 +7,10 @@ import {
   OnChanges,
   OnInit,
   Output,
+  signal,
   SimpleChanges
 } from '@angular/core';
-import * as inView from 'in-view';
+import inView from 'in-view';
 
 import { LayoutService } from '../../../../core';
 import { IPicture } from '../../interfaces';
@@ -19,22 +18,15 @@ import { IPicture } from '../../interfaces';
 @Component({
   selector: 'app-picture',
   templateUrl: './picture.component.html',
-  styleUrl: './picture.component.scss',
-  animations: [
-    trigger('pictureVisibilityChanged', [state('hidden', style({ display: 'none' })), state('shown', style({ display: 'block' }))]),
-    trigger('imageVisibilityChanged', [
-      state('hidden', style({ opacity: 0 })),
-      state('shown', style({ opacity: 1 })),
-      transition('hidden => shown', animate('0.5s ease-in'))
-    ])
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './picture.component.scss'
 })
 export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
   private readonly layoutService = inject(LayoutService);
 
   domId: string;
-  visibility = 'hidden';
+
+  pictureVisibilityState = signal<'hidden' | 'shown'>('hidden');
+  imageVisibilityState = signal<'hidden' | 'shown'>('hidden');
 
   @Input() picture: IPicture;
 
@@ -50,12 +42,12 @@ export class PictureComponent implements AfterViewInit, OnChanges, OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['visible'] && this.visible) {
-      this.visibility = 'shown';
+      this.pictureVisibilityState.set('shown');
+      this.imageVisibilityState.set('shown');
     }
   }
 
   ngAfterViewInit(): void {
-
     inView(`#${this.domId}`).once('enter', () => {
       this.displayed.emit(this.picture);
       this.displayed.complete();

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -10,8 +10,7 @@ import { GalleryComponent } from '../gallery/gallery.component';
 @Component({
   templateUrl: './page.component.html',
   styleUrl: './page.component.scss',
-  imports: [CommonModule, GalleryComponent],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  imports: [CommonModule, GalleryComponent]
 })
 export class PageComponent implements OnInit {
   private readonly activatedRoute = inject(ActivatedRoute);
